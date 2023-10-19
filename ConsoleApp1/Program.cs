@@ -4,23 +4,25 @@ using Robots;
 
 
 Robot robot = new Robot("Vally", 0, 0);
-RobotMobile robot2 = new RobotMobile("R2D2", 0, 0, 2);
+Point thisRobotPoint = new Point(1, 1);
+Point thisRobotNewPoint = new Point(2, 2);
+RobotMobile robotMobile = new RobotMobile("R2D2", 0, 0, 2, thisRobotPoint);
+Console.WriteLine(robotMobile.SeDeplacer(thisRobotNewPoint));
 
-
-Console.WriteLine(robot2.Demarrer());
-Console.WriteLine(robot2.Nettoyer());
+Console.WriteLine(robotMobile.Demarrer());
+Console.WriteLine(robotMobile.Nettoyer());
 
 Console.ReadLine();
 
 
 robot.Nom = "Eva";
-robot2.Avancer(10, 10);
-Console.WriteLine(robot2.CalculerDureeDeDeplacement(1, 10));
+robotMobile.Avancer(10, 10);
+Console.WriteLine(robotMobile.CalculerDureeDeDeplacement(1, 10));
 
 Console.WriteLine(robot.AfficherPosition().ToString());
 Console.WriteLine(robot.Nom.ToString());
 robot.Avancer(2,2);
 Console.WriteLine(robot.AfficherPosition());
-Console.WriteLine(robot2.AfficherPosition());
+Console.WriteLine(robotMobile.AfficherPosition());
 Console.WriteLine(robot.Demarrer());
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ namespace Robots
     public class RobotMobile : Robot, IRobotNettoyage
     {
         public int Vitesse;
+        public Point Position;
 
         // constructeur
-        public RobotMobile(string Nom, int PositionX, int PositionY, int Vitesse):base(Nom, PositionX, PositionY)
+        public RobotMobile(string Nom, int PositionX, int PositionY, int Vitesse, Point Position):base(Nom, PositionX, PositionY)
         {
             this.Vitesse = Vitesse;
+            this.Position = Position;
         }
 
         private int CalculerDistance (int posX, int posY)
@@ -43,6 +46,11 @@ namespace Robots
         public string Nettoyer ()
         {
             return $"Le robot mobile {this.Nom} nettoie le sol";
+        }
+
+        public double SeDeplacer (Point Position)
+        {
+            return Utils.CalculerDistance(this.Position, Position);
         }
     }
 }
