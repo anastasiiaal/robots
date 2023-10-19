@@ -8,17 +8,26 @@ namespace Robots
 {
     public class RobotMobile : Robot
     {
-        private int _vitesse;
+        public int Vitesse;
 
         // constructeur
         public RobotMobile(string Nom, int PositionX, int PositionY, int Vitesse):base(Nom, PositionX, PositionY)
         {
-            _vitesse = Vitesse;
+            this.Vitesse = Vitesse;
         }
 
-        public int CalculerDureeDeDeplacement(int prevPos, int pos)
+        private int CalculerDistance (int posX, int posY)
         {
-            return (pos - prevPos) / _vitesse;
+            int distance = 0;
+            distance = Math.Abs(posX - _positionX) + Math.Abs(posY - _positionY);
+            return distance;
+        }
+
+        public int CalculerDureeDeDeplacement(int posX, int posY)
+        {
+            int duree = 0;
+            duree = CalculerDistance(posX, posY) / Vitesse;
+            return duree;
         }
 
         public new string AfficherPosition() // methode surchargé
