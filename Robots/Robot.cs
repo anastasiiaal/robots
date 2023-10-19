@@ -1,6 +1,6 @@
 ﻿namespace Robots
 {
-    public class Robot
+    public class Robot : RobotAbstract
     {
         protected int _positionX;
         protected int _positionY;
@@ -14,15 +14,20 @@
             this._positionY = PositionY;
         }
 
+        public override string Demarrer()
+        {
+            return "J'ai bougé !";
+        }
+
         public void Avancer(int directionX, int directionY)
         {
             _positionX += directionX;
             _positionY += directionY;
         }
 
-        public string AfficherPosition()
+        public virtual string AfficherPosition()
         {
-            return $"Position X: {_positionX}, Y: {_positionY}";
+            return $"Position de Robot Mobile X: {_positionX}, Y: {_positionY}";
         }
     }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Robots
 {
-    public class RobotMobile : Robot
+    public class RobotMobile : Robot, IRobotNettoyage
     {
         public int Vitesse;
 
@@ -30,9 +30,19 @@ namespace Robots
             return duree;
         }
 
-        public new string AfficherPosition() // methode surchargé
+        public override string AfficherPosition() // methode surchargé
         {
             return $"Position X: {_positionX}, Y: {_positionY}";
+        }
+
+        public override string Demarrer()
+        {
+            return "J'ai bougé car je suis mobile !";
+        }
+
+        public string Nettoyer ()
+        {
+            return $"Le robot mobile {this.Nom} nettoie le sol";
         }
     }
 }
