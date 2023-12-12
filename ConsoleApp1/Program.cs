@@ -29,8 +29,8 @@ Robot AfficherNomRobot (Robot robot, string nouveauNom)
     return robot;
 }
 
-Robot robot2 = new Robot("Sally", 0, 0);
-var newName = AfficherNomRobot(robot2, "Not Sally Anymore");
+Robot robotNew = new Robot("Sally", 0, 0);
+var newName = AfficherNomRobot(robotNew, "Not Sally Anymore");
 Console.WriteLine(newName.Nom);
 
 var x = 5;
@@ -80,6 +80,36 @@ int calculateAverageSpeed(RobotMobile[] robots)
 
 int vitesseMoyenne = calculateAverageSpeed(robots);
 Console.WriteLine(vitesseMoyenne);
+
+
+
+List<RobotToList> robotsList = new List<RobotToList>();
+
+// Ajout des instances à la liste
+robotsList.Add(new RobotToList("Robot1", 1, "Actif", DateTime.Now));
+robotsList.Add(new RobotToList("Robot2", 2, "Inactif", DateTime.Now));
+robotsList.Add(new RobotToList("Robot3", 3, "En Maintenance", DateTime.Now));
+
+// Affichage des informations des robots (optionnel)
+foreach (var robotInList in robotsList)
+{
+    Console.WriteLine($"ID: {robotInList.ID}, Nom: {robotInList.Name}, Status: {robotInList.Status}, Date de Création: {robotInList.CreationDate}");
+}
+
+Dictionary<int, RobotToList> robotDictionary = new Dictionary<int, RobotToList>();
+foreach (var robotInDict in robotsList)
+{
+    robotDictionary.Add(robotInDict.ID, robotInDict);
+}
+
+// Affichage des informations des robots (optionnel)
+foreach (var robotInDict in robotDictionary)
+{
+    Console.WriteLine($"ID: {robotInDict.Key}, Nom: {robotInDict.Value.Name}, Status: {robotInDict.Value.Status}, Date de Création: {robotInDict.Value.CreationDate}");
+}
+
+
+
 
 
 Console.ReadLine();
